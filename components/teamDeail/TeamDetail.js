@@ -6,6 +6,9 @@ import TeamContext from "../../store/team-context";
 
 import ErrorPage from "../ui/error-page/ErrorPage";
 import Layout from "../layout/Layout";
+import TeamDetailInfo from "./TeamDetailInfo";
+import PlaysList from "./plays/PlaysList";
+import TeamDetailForm from "./TeamDetailForm";
 
 const TeamDetail = () => {
   const router = useRouter();
@@ -14,13 +17,26 @@ const TeamDetail = () => {
   const id = router.query.teamId;
   const team = teamCtx.teamHandler("FIND_TEAM", id);
 
+  const addPlayHandler = data => {
+    teamCtx.teamHandler("ADD_PLAY", {id, data})
+  }
+
+  const removeTeamHandler = id => {
+    teamCtx.teamHandler("REMOVE", id)
+    router.push('/teams')
+  }
+
   return (
     <Layout>
       <Head>
         <title>جزئیات تیم | امتیاز دهی تیم</title>
       </Head>
       {team !== undefined ? (
-        team.name
+        <>
+          <TeamDetailInfo onRemoveTeam={removeTeamHandler} id={team.id} teamInfo={team} />
+          <TeamDetailForm onAddPlay={addPlayHandler} />
+          <PlaysList lists={team.plays} />
+        </>
       ) : (
         <ErrorPage
           layout={false}

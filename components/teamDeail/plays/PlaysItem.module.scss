@@ -1,0 +1,70 @@
+@import "/styles/scss/variables";
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.header {
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed mix($dark-color, $light-color, 20%);
+}
+
+.item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    &.success {
+        .text {
+            background-color: mix($light-color, $success-color, 85%);
+        }
+
+        .title {
+            color: $success-color;
+        }
+    }
+
+    &.error {
+        .text {
+            background-color: mix($light-color, $error-color, 85%);
+        }
+
+        .title {
+            color: $error-color;
+        }
+    }
+
+    &.warning {
+        .text {
+            background-color: mix($light-color, $warning-color, 85%);
+        }
+
+        .title {
+            color: $warning-color;
+        }
+    }
+}
+
+.text {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 10px;
+    background-color: mix($dark-color, $light-color, 5%);
+    color: $text-color;
+    border-radius: $border-radius;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 800;
+    color: $title-color;
+}

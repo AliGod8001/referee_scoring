@@ -9,7 +9,6 @@ const AddTeamForm = (props) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const onAddTeamFormSubmit = (data) => {

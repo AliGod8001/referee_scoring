@@ -15,7 +15,13 @@ const AddTeam = () => {
         const sendTeam = {
             id: new Date().getTime().toString(),
             ...team,
-            plays: []
+            plays: [],
+            win: 0,
+            lose: 0,
+            draw: 0,
+            scoredGoal: 0,
+            recivedGoal: 0,
+            warning: 0
         }
 
         teamCtx.teamHandler('ADD', sendTeam)
