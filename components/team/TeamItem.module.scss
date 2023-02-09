@@ -1,0 +1,35 @@
+@import '/styles//scss/variables';
+
+.teams {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 16px;
+    color: $title-color;
+    font-weight: 800;
+    background-color: $light-color;
+    border-radius: $border-radius;
+    border: 1px solid mix($dark-color, $light-color, 10%);
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+        background-color: mix($dark-color, $light-color, 2%);
+        border-color: $primary-color;
+    }
+}
+
+.point {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 17px;
+    color: $star-color;
+
+    [class^='icon-'] {
+        margin-top: -5px;
+    }
+}

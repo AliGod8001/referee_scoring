@@ -1,0 +1,28 @@
+@import "./scss/common";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'vazir';
+  font-weight: normal;
+  direction: rtl;
+  text-align: right;
+  background-color: $main-background;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  margin-bottom: 70px;
+}

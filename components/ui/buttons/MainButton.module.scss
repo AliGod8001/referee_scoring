@@ -1,0 +1,27 @@
+@import '/styles/scss/variables';
+
+.button {
+    font-family: 'vazir';
+    border: none;
+    padding: $button-padding;
+    border-radius: $button-border-radius;
+    background-color: $primary-color;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-width: 130px;
+    transition: $transition;
+
+    &:hover,
+    &:active {
+        background-color: $primray-dark-color;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: lighten($disable-color, 15%);
+        color: $title-color;
+    }
+}

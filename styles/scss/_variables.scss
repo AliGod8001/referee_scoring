@@ -1,0 +1,50 @@
+// primary color
+$primary-color: #0F4C5C;
+$primary-light-color: lighten($primary-color, 10%);
+$primray-dark-color: darken($primary-color, 10%);
+
+// secondary color
+$secondary-color: #FFB8D1;
+$secondary-light-color: lighten($secondary-color, 10%);
+$secondary-dark-color: darken($secondary-color, 10%);
+
+// main background
+$main-background: #eee;
+$navigation-background: #fff;
+
+// title color
+$title-color: #333;
+$sub-title-color: #888;
+
+// text color
+$text-color: #6e6e6e;
+$sub-text-color: lighten($text-color, 8%);
+
+// dark and light color 
+$dark-color: #000000;
+$light-color: #ffffff;
+
+// status color
+$error-color: #e21a1a;
+$star-color: #ffb13b;
+
+// box shadow 
+$navigation-box-shadow: 0 1px 6px #00000050;
+$navigation-border-radius: 20px;
+
+// padding
+$container-padding: 0 10px;
+
+// border-radius
+$border-radius: 10px;
+
+
+// transition
+$transition: all 350ms linear;
+
+// color
+$disable-color: #8e8e8e;
+
+// button
+$button-border-radius: 7px;
+$button-padding: 12px 20px;

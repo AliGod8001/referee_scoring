@@ -1,0 +1,16 @@
+@import "/styles/scss/variables";
+
+.item {
+    font-size: 16px;
+    font-weight: 700;
+    color: $text-color;
+    transition: $transition;
+
+    &:hover {
+        color: $secondary-color;
+    }
+}
+
+.active {
+    color: $secondary-color;
+}

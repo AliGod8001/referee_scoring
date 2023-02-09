@@ -1,0 +1,12 @@
+@import "/styles/scss/variables";
+
+.header {
+    padding: 30px 20px;
+    background-color: $navigation-background;
+    box-shadow: $navigation-box-shadow;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+}

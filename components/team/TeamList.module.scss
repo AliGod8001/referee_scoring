@@ -1,0 +1,24 @@
+@import "/styles//scss/variables";
+
+.notFound {
+    width: 100%;
+    padding: 20px;
+    border-radius: $border-radius;
+    background-color: $light-color;
+    font-size: 20px;
+    font-weight: 800;
+    color: $title-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba($dark-color, 15%);
+}
+
+.wrapper {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}

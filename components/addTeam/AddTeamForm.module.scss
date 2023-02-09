@@ -1,0 +1,67 @@
+@import "/styles/scss/variables";
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.control {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+
+    &.error {
+        label {
+            color: $error-color;
+        }
+    }
+
+    label {
+        font-size: 14px;
+        color: $title-color;
+        transition: $transition;
+    }
+
+    input {
+        border: none;
+        outline: none;
+        border: 1px solid mix($dark-color, $light-color, 10%);
+        width: 100%;
+        background-color: $light-color;
+        padding: 12px;
+        font-size: 15px;
+        color: $title-color;
+        border-radius: 5px;
+        transition: $transition;
+
+        &:focus,
+        &:hover {
+            box-shadow: 0 2px 8px #00000020;
+        }
+
+        &::placeholder {
+            font-family: "vazir";
+            font-size: 12px;
+            color: $text-color;
+        }
+    }
+
+    .err {
+        font-size: 12px;
+        color: $error-color;
+    }
+}
+
+.action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
