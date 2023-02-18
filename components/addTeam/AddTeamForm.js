@@ -45,7 +45,7 @@ const AddTeamForm = (props) => {
         )}
       </div>
       <div className={styles.action}>
-        <MainButton>ثبت فرم</MainButton>
+        <MainButton>ثبت تیم</MainButton>
       </div>
     </form>
   );
