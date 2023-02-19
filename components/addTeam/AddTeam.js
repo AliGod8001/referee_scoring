@@ -15,6 +15,7 @@ const AddTeam = () => {
         const sendTeam = {
             id: new Date().getTime().toString(),
             ...team,
+            difference: 0,
             plays: [],
             win: 0,
             lose: 0,

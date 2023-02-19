@@ -32,6 +32,8 @@ export const TeamContextProvider = (props) => {
 
       team.plays.push(item.data);
       team[item.data.status] += 1;
+      team.difference += ( item.data.scoredGoal - item.data.recivedGoal)
+      team.warning += item.data.warning
 
       if (item.data.status === "win") {
         team.point = team.point + 3;

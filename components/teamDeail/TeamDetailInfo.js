@@ -36,6 +36,10 @@ const TeamDetailInfo = (props) => {
             <span className={styles.text}>بازی های مساوی :</span>
             <span className={styles.title}>{props.teamInfo.draw}</span>
           </div>
+          <div className={`${styles.item} ${props.teamInfo.difference >= 0 ? styles.success : styles.error}`}>
+            <span className={styles.text}>تفاضل گل :</span>
+            <span className={styles.title}>{props.teamInfo.difference}</span>
+          </div>
           <div className={`${styles.item} ${styles.success}`}>
             <span className={styles.text}>گل های زده :</span>
             <span className={styles.title}>{props.teamInfo.scoredGoal}</span>
