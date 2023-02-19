@@ -34,7 +34,7 @@ const PlaysItem = (props) => {
             ? "برد"
             : "باخت"}
         </div>
-        <MainButton onClick={editPlayHandler}>تغییر تیم</MainButton>
+        <MainButton onClick={editPlayHandler}>تغییر بازی</MainButton>
       </div>
       <div className={`${styles.item} ${styles.success}`}>
         <span className={styles.text}>گل های زده :</span>
