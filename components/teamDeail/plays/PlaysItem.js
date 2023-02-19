@@ -12,14 +12,16 @@ const PlaysItem = (props) => {
   const rGoalInputRef = useRef();
 
   const editPlayHandler = () => {
-    teamCtx.teamHandler('EDIT_PLAY', {
-      pId: router.query.teamId,
-      data: {
-        id: props.id,
-        scoredGoal: parseInt(sGoalInputRef.current.value),
-        recivedGoal: parseInt(rGoalInputRef.current.value)
-      }
-    })
+    if ( !(props.sGoal === parseInt(sGoalInputRef.current.value) && props.rGoal === parseInt(rGoalInputRef.current.value)) ) {
+      teamCtx.teamHandler('EDIT_PLAY', {
+        pId: router.query.teamId,
+        data: {
+          id: props.id,
+          scoredGoal: parseInt(sGoalInputRef.current.value),
+          recivedGoal: parseInt(rGoalInputRef.current.value)
+        }
+      })
+    }
   }
 
   return (

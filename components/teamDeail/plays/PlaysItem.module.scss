@@ -31,8 +31,9 @@
 .item {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
+    flex-direction: column;
     gap: 10px;
     margin-bottom: 10px;
 
@@ -64,6 +65,14 @@
         .title {
             color: $warning-color;
         }
+    }
+
+    input {
+        border: 1px solid mix($dark-color, $light-color, 15%);
+        background-color: transparent;
+        outline: none;
+        padding: 5px;
+        width: 100%;
     }
 }
 
