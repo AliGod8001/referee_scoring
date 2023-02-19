@@ -23,6 +23,7 @@ const TeamDetailForm = (props) => {
     props.onAddPlay({
         id: new Date().getTime().toString(),
         status: setStatus(parseInt(data.scoredGoal), parseInt(data.recivedGoal)),
+        difference: parseInt(data.scoredGoal - data.recivedGoal),
         recivedGoal: parseInt(data.recivedGoal),
         scoredGoal: parseInt(data.scoredGoal),
         warning: parseInt(data.warning)

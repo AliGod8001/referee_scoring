@@ -22,7 +22,8 @@ export const TeamContextProvider = (props) => {
       SetTeams((prevState) => {
         return [item, ...prevState];
       });
-      localStorage.setItem("TEAMS", JSON.stringify([...teams, item]));
+      const updatedTeams = [...teams, item]
+      localStorage.setItem("TEAMS", JSON.stringify(updatedTeams));
     } else if (action === "FIND_TEAM") {
       return teams.find((team) => team.id === item);
     } else if (action === "ADD_PLAY") {
@@ -32,7 +33,7 @@ export const TeamContextProvider = (props) => {
 
       team.plays.push(item.data);
       team[item.data.status] += 1;
-      team.difference += ( item.data.scoredGoal - item.data.recivedGoal)
+      team.difference += ( item.data.difference)
       team.warning += item.data.warning
 
       if (item.data.status === "win") {
@@ -42,6 +43,48 @@ export const TeamContextProvider = (props) => {
       }
 
       updatedTeams[teamIndex] = team;
+      SetTeams(updatedTeams);
+      localStorage.setItem("TEAMS", JSON.stringify(updatedTeams));
+    } else if (action === "EDIT_PLAY") {
+      const teamIndex = teams.findIndex(team => team.id === item.pId)
+      let team = teams[teamIndex]
+      const playIndex = team.plays.findIndex(play => play.id === item.data.id)
+      let play = team.plays[playIndex]
+      const oldStatus = play.status
+      const status = item.data.scoredGoal > item.data.recivedGoal ? 'win' : item.data.scoredGoal === item.data.recivedGoal ? "draw" : "lose"
+      const change = play.status !== status
+      const dif = play.difference
+      play = {
+        ...play,
+        scoredGoal: item.data.scoredGoal,
+        recivedGoal: item.data.recivedGoal,
+        difference: ( item.data.scoredGoal - item.data.recivedGoal),
+        status
+      }
+      const updatedPlays = [...team.plays]
+      updatedPlays[playIndex] = play
+      team.plays = updatedPlays
+
+      if ( change ) {
+        if ( oldStatus === 'draw' && status === 'win' ) {
+          team.point += 2
+        } else if ( oldStatus === 'draw' && status === 'lose' ) {
+          team.point -= 1
+        } else if ( oldStatus === 'win' && status === 'draw' ) {
+          team.point -= 2
+        } else if ( oldStatus === 'win' && status === 'lose' ) {
+          team.point -= 3
+        } else if ( oldStatus === 'lose' && status === 'draw' ) {
+          team.point += 1
+        } else if ( oldStatus === 'lose' && status === 'win' )  {
+          team.point += 3
+        }
+      }
+      
+      team.difference = team.difference - dif + (play.difference)
+
+      const updatedTeams = [...teams]
+      updatedTeams[teamIndex] = team
       SetTeams(updatedTeams);
       localStorage.setItem("TEAMS", JSON.stringify(updatedTeams));
     } else if (action === "REMOVE") {
