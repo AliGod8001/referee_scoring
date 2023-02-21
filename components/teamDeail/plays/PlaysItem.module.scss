@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: space-between;
 
-    button {
+    .edit {
         background-color: mix($light-color, $info-color, 80%);
         color: $info-color;
 
@@ -25,6 +25,24 @@
         &:focus {
             background-color: mix($light-color, $info-color, 70%);
         }
+    }
+
+    .delete {
+        margin-right: auto;
+        margin-left: 10px;
+        background-color: mix($light-color, $error-color, 80%);
+        color: $error-color;
+
+        &:hover,
+        &:focus {
+            background-color: mix($light-color, $error-color, 70%);
+        }
+    }
+
+    .edit,
+    .delete {
+        min-width: 0;
+        padding: 10px 15px;
     }
 }
 

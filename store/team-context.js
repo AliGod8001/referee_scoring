@@ -87,6 +87,15 @@ export const TeamContextProvider = (props) => {
       updatedTeams[teamIndex] = team
       SetTeams(updatedTeams);
       localStorage.setItem("TEAMS", JSON.stringify(updatedTeams));
+    } else if ( action === "DELETE_PLAY") {
+      const teamIndex = teams.findIndex(team => team.id === item.pId)
+      const team = teams[teamIndex]
+      team.plays = team.plays.filter(play => play.id !== item.id)
+
+      const updatedTeams = [...teams]
+      updatedTeams[teamIndex] = team
+      SetTeams(updatedTeams)
+      localStorage.setItem("TEAMS", JSON.stringify(updatedTeams));
     } else if (action === "REMOVE") {
       const updatedTeams = teams.filter((team) => team.id !== item);
       SetTeams(updatedTeams);
