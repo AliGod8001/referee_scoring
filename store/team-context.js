@@ -90,7 +90,21 @@ export const TeamContextProvider = (props) => {
     } else if ( action === "DELETE_PLAY") {
       const teamIndex = teams.findIndex(team => team.id === item.pId)
       const team = teams[teamIndex]
+      const play = team.plays.find(play => play.id === item.id)
       team.plays = team.plays.filter(play => play.id !== item.id)
+
+      if ( play.status === 'win' ) {
+        team.point -= 3
+        team.win -=1
+      } else if ( play.status === 'draw' ) {
+        team.point -= 1
+        team.draw -= 1
+      } else {
+        team.lose -= 1
+      }
+
+      team.difference -= play.difference
+      team.warning -= play.warning
 
       const updatedTeams = [...teams]
       updatedTeams[teamIndex] = team
